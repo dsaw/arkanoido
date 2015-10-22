@@ -1,4 +1,6 @@
 
+package arkanoid_1;
+
 
 import java.awt.*;
 import java.awt.event.*;
@@ -14,57 +16,6 @@ import java.util.TimerTask;
 //import Arkanoido.Sprite;
 //
 //
-
-class Sprite {
-  int x,y,width,height;
-
-  Sprite( int X, int Y ,int w, int h )
-  {
-     x = X;
-     y = Y;
-     width = w;
-     height = h;
-
-  }
-
-
-
-  public int getX()
-  {
-    return x;
-  }
-
-  public int getY()
-  {
-   return y;
-  }
-
-  public int getWidth()
-  {
-    return width;
-   }
-
-  public int getHeight()
-{
-
-    return height;
-   }
-  
-  
-  boolean checkCollision( Sprite spr )
-
-  {
-    // simple bounding box collision
-    
-    
-    
-
-
-    return true;
-
-  }
-
-}
 
 
 
@@ -334,7 +285,7 @@ public class ArkanoidEx extends JPanel implements Runnable  {
 	
 	public static final int CANVAS_WIDTH  = 640;
 	public static final int CANVAS_HEIGHT = 480;
-	public static final long DELAY =30; 
+	public static final long DELAY = 30; 
 	public static final long WAIT =20;
 	public static final String TITLE = "ARKANOIDO!!";
 	private JButton StartBt ,ExitBt;
@@ -438,8 +389,8 @@ public class ArkanoidEx extends JPanel implements Runnable  {
 	{
 		add(StartBt);
 	  	add(ExitBt);
-	  	revalidate();
-	  	repaint();
+	  	//revalidate();
+	  	//repaint();
 	}
 	
 	
@@ -516,7 +467,7 @@ public class ArkanoidEx extends JPanel implements Runnable  {
 				  restartGame();
 				  
 				  requestFocusInWindow();	
-					
+		          			
 				}
                 
 				else
@@ -540,7 +491,7 @@ public class ArkanoidEx extends JPanel implements Runnable  {
 					
 				  
 				  reloadMenu();
-				  validate();
+				  revalidate();
 				  
 					
 				}
