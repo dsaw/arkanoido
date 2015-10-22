@@ -60,8 +60,7 @@ import java.util.TimerTask;
     {
 		dx = 0;
 		dy = 0;
-		x = X;
-		y = Y;
+	    loc.setLocation(X,Y);
 		
 		
     }
@@ -132,8 +131,8 @@ import java.util.TimerTask;
     public void move()
     {
 		
-		 x += dx;
-		  y += dy;
+		 loc.x += dx;
+		  loc.y += dy;
 		
 	}    
 
@@ -147,7 +146,7 @@ import java.util.TimerTask;
 	//	g.setColor( Color.BLACK );
 	//	g.drawRect( x ,y ,width , height   );
 
-	    g.drawImage(paddleimg , x,y, null);
+	    g.drawImage(paddleimg , loc.x,loc.y, null);
 		// perform your custom painting operations here
 	//	g.setPaint( gpPaddle );
 //		g.fillRect( x ,y ,width , height  );
@@ -201,8 +200,8 @@ import java.util.TimerTask;
 	{
 		
 		
-		x = INIT_X;
-		y = INIT_Y;
+		loc.x = INIT_X;
+		loc.y = INIT_Y;
 		generateVel();
 		
 		
@@ -218,41 +217,41 @@ import java.util.TimerTask;
 	  // Simple Wall collision checking
 	  // wGame --> width of game
 	  // hGame --> height of game
-	  if ( y + dy <= 0 )
+	  if ( loc.y + dy <= 0 )
 	    dy = -dy;
-	  if ( x + dx <= 0 || x + width +  dx >= wGame )
+	  if ( loc.x + dx <= 0 || loc.x + width +  dx >= wGame )
 	    dx = -dx;
 	    
 
-	  x += dx;
-	  y += dy;
+	  loc.x += dx;
+	  loc.y += dy;
 	
 	}
 	
 	public void renderItself( Graphics2D g )
 	{
 		g.setColor( Color.BLACK );
-		g.drawArc( x ,y ,width , height ,0 , 360	 );
+		g.drawArc( loc.x ,loc.y ,width , height ,0 , 360	 );
 		// perform your custom painting operations here
                 g.setColor( Color.GRAY );
-		g.fillArc( x ,y ,width , height ,0 , 360 );
+		g.fillArc( loc.x ,loc.y ,width , height ,0 , 360 );
 
 	}
 
 	public void checkCollision( Paddle p )
 	{
 	  boolean ifCollided = false;
-          if ( p.getX() <= x + dx && x + dx <= p.getX() + p.getWidth()  && p.getY() <= y + height + dy  && y + height + dy <= p.getY() + p.getHeight() )
+          if ( p.getX() <= loc.x + dx && loc.x + dx <= p.getX() + p.getWidth()  && p.getY() <= loc.y + height + dy  && loc.y + height + dy <= p.getY() + p.getHeight() )
                   ifCollided = true;
            
-          if ( p.getX() <= x+width+dx && x+width+dx  <= p.getX() + p.getWidth()  && p.getY() <=  y+height+dy && y+height + dy <= p.getY() + p.getHeight() )
+          if ( p.getX() <= loc.x+width+dx && loc.x+width+dx  <= p.getX() + p.getWidth()  && p.getY() <=  loc.y+height+dy && loc.y+height + dy <= p.getY() + p.getHeight() )
                  ifCollided = true;
 
           // reflect velocity if collided 
 	  if ( ifCollided)
 	  {
 	    // lower left corner is above paddle ?
-	    if ( y + height < p.getY() )
+	    if ( loc.y + height < p.getY() )
 	      dy = -dy;
 	    else
 	      dx = -dx;
@@ -265,7 +264,7 @@ import java.util.TimerTask;
     // if out of the arena --> GAME OVER
     public boolean checkIfOut()
     {
-		if ( y + height>= hGame )
+		if ( loc.y + height>= hGame )
 		  return true;
 		  
 		else

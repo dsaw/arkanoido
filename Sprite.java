@@ -3,13 +3,15 @@
 package arkanoid_1;
 
 
+// Use java.awt.Point class
+
 class Sprite {
   int x,y,width,height;
-
+  Point loc;
+  
   Sprite( int X, int Y ,int w, int h )
   {
-     x = X;
-     y = Y;
+     loc = new Point(X,Y);
      width = w;
      height = h;
 
@@ -19,12 +21,12 @@ class Sprite {
 
   public int getX()
   {
-    return x;
+    return loc.getX();
   }
 
   public int getY()
   {
-   return y;
+   return loc.getY();
   }
 
   public int getWidth()
