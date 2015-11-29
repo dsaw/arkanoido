@@ -233,7 +233,7 @@ import java.util.TimerTask;
 		g.setColor( Color.BLACK );
 		g.drawArc( loc.x ,loc.y ,width , height ,0 , 360	 );
 		// perform your custom painting operations here
-                g.setColor( Color.GRAY );
+        g.setColor( Color.GRAY );
 		g.fillArc( loc.x ,loc.y ,width , height ,0 , 360 );
 
 	}
@@ -241,11 +241,11 @@ import java.util.TimerTask;
 	public void checkCollision( Paddle p )
 	{
 	  boolean ifCollided = false;
-          if ( p.getX() <= loc.x + dx && loc.x + dx <= p.getX() + p.getWidth()  && p.getY() <= loc.y + height + dy  && loc.y + height + dy <= p.getY() + p.getHeight() )
-                  ifCollided = true;
+      if ( p.getX() <= loc.x + dx && loc.x + dx <= p.getX() + p.getWidth()  && p.getY() <= loc.y + height + dy  && loc.y + height + dy <= p.getY() + p.getHeight() )
+          ifCollided = true;
            
-          if ( p.getX() <= loc.x+width+dx && loc.x+width+dx  <= p.getX() + p.getWidth()  && p.getY() <=  loc.y+height+dy && loc.y+height + dy <= p.getY() + p.getHeight() )
-                 ifCollided = true;
+      if ( p.getX() <= loc.x+width+dx && loc.x+width+dx  <= p.getX() + p.getWidth()  && p.getY() <=  loc.y+height+dy && loc.y+height + dy <= p.getY() + p.getHeight() )
+          ifCollided = true;
 
           // reflect velocity if collided 
 	  if ( ifCollided)

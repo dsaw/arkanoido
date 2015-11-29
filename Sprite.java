@@ -2,7 +2,8 @@
 
 package arkanoid_1;
 
-
+import java.awt.Point;
+import java.awt.Shape;
 // Use java.awt.Point class
 
 class Sprite {
@@ -21,12 +22,12 @@ class Sprite {
 
   public int getX()
   {
-    return loc.getX();
+    return loc.x;
   }
 
   public int getY()
   {
-   return loc.getY();
+   return loc.y;
   }
 
   public int getWidth()
